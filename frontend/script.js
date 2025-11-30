@@ -245,7 +245,7 @@ function findItemLine(entry, jsonLines) {
         }
 
         const displayImageName = itemName.replace(/^minecraft:/i, '');
-        const imagePath = window.getImagePath ? window.getImagePath(itemName) : `http://localhost:3000/images/${displayImageName}.png`;
+        const imagePath = window.getImagePath ? window.getImagePath(itemName) : `https://loot-table.onrender.com/images/${displayImageName}.png`;
 
         // Use the improved line finding function that accounts for IDs
         const lineNum = findItemLine(entry, jsonLines);

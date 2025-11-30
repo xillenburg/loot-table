@@ -171,7 +171,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // create icon and qty label
         const img = document.createElement('img');
-        img.src = window.getImagePath ? window.getImagePath(chosen.name) : `http://localhost:3000/images/${chosen.rawBase}.png`;
+        img.src = window.getImagePath ? window.getImagePath(chosen.name) : `https://loot-table.onrender.com/images/${chosen.rawBase}.png`;
         img.alt = chosen.rawBase;
         img.onerror = () => { img.style.display = 'none'; };
 

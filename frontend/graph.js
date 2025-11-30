@@ -43,7 +43,7 @@
         const uniqueName = itemId ? `${rawName} (${itemId})` : rawName;
         
         const weight = typeof entry.weight === 'number' ? entry.weight : 1;
-        const imgPath = window.getImagePath ? window.getImagePath(itemName) : `http://localhost:3000/images/${rawName}.png`;
+        const imgPath = window.getImagePath ? window.getImagePath(itemName) : `https://loot-table.onrender.com/images/${rawName}.png`;
 
         if (!itemMap[uniqueName]) {
           itemMap[uniqueName] = { weight: 0, imgPath, rawName: rawName };
