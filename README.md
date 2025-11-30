@@ -31,7 +31,7 @@ node server.js
 ## Verification
 
 **Test frontend:**
-- Open `frontend/index.html`
+- Open my [website](https://loot-table.onrender.com)
 - Upload a loot table JSON file located at "loot table/sample json" and pick any of the two .json samples
 - Images should load from backend server
 
