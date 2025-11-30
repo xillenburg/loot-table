@@ -33,3 +33,8 @@ app.listen(PORT, () => {
   console.log(`🚀 Backend server running on http://localhost:${PORT}`);
   console.log(`📁 Serving images from: ${path.join(__dirname, 'images')}`);
 });
+
+app.use(express.static(path.join(__dirname, '../frontend')));
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '../frontend/index.html'));
+});
