@@ -3,8 +3,7 @@
 ## Note
 ### I did not implement a generic backend feature like **"user login"** as this website does not need it. The entire backend feature is a simple **"backend finds the images in its folder and sends them back to show on your screen."**
 
-## You can either run my website LOCALLY **OR** use my deployed [website ](https://loot-table.onrender.com)
-### Proceed to the `new` branch for further instructions
+## You can either run my website LOCALLY **OR** use my deployed [website. ](https://loot-table.onrender.com) Proceed to the `new` branch for further instructions
 
 ## `main` branch is for users who want to run it LOCALLY
 ## Prerequisites
