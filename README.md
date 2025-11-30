@@ -1,38 +1,11 @@
 # Loot Table Analyzer - Setup Instructions
 
-## Prerequisites
-- Node.js installed (download from https://nodejs.org)
+## How to use deployed website
 
-## Quick Start
-
-1. **Open terminal/command prompt** in the project folder
-
-2. **Navigate to backend folder:**
-```bash
-cd backend
-```
-
-3. **Install dependencies:**
-```bash
-npm install
-```
-
-4. **Start the backend server:**
-```bash
-node server.js
-```
-
-5. **You should see:**
-```
-🚀 Backend server running on http://localhost:3000
-📁 Serving images from: [path_to_images_folder]
-```
-
-## Verification
-
-**Test frontend:**
 - Open my [website](https://loot-table.onrender.com)
 - Upload a loot table JSON file located at "loot table/sample json" and pick any of the two .json samples
+- OR press here to auto-download a `.json` sample [Uploading ancient_city.json…]()
+
 - Images should load from backend server
 
 ## Architecture Notes
