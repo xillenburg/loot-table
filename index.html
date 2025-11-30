@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Loot Table Tool</title>
+  <link rel="icon" href="icon.png" type="image/png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== Website Header ===== -->
+  <header class="website-header">
+    <h1 id="animated-title">Loot Table Analyzer</h1>
+    <p>Upload and analyze Minecraft loot table JSON files</p>
+  </header>
+
+  <!-- ===== Upload Screen ===== -->
+  <div id="upload-screen">
+    <div class="upload-box">
+      <canvas class="cube-canvas"></canvas>
+      <p>Drag & Drop a JSON loot table here<br>or click to browse</p>
+      <input type="file" id="fileInput" accept=".json" style="display:none;">
+    </div>
+  </div>
+
+  <!-- Dropzone cubes animation -->
+  <script src="dropzone-cubes.js"></script>
+  <!-- File handling logic -->
+  <script src="file-handler.js"></script>
+
+  <script>
+    // Make upload-box clickable
+    const uploadBox = document.querySelector('.upload-box');
+    const fileInput = document.getElementById('fileInput');
+    uploadBox.addEventListener('click', () => fileInput.click());
+
+    // Initialize file handling with callback
+    setupFileHandling(uploadBox, fileInput, (data, fileName) => {
+      // Store data and filename for parsed.html
+      localStorage.setItem('lootTableData', JSON.stringify(data));
+      localStorage.setItem('lootTableFileName', fileName);
+      // Redirect to parsed.html
+      window.location.href = 'parsed.html';
+    });
+
+    // Split title into individual letters with animation delays
+    document.addEventListener('DOMContentLoaded', () => {
+      const title = document.getElementById('animated-title');
+      const text = title.textContent;
+      title.innerHTML = '';
+      
+      text.split('').forEach((char, index) => {
+        const span = document.createElement('span');
+        span.textContent = char;
+        span.style.setProperty('--char-index', index);
+        span.style.color = '#4da73e';
+        span.style.textShadow = '0 0 10px rgba(77, 167, 62, 0.3)';
+        title.appendChild(span);
+      });
+    });
+  </script>
+
+</body>
+</html>

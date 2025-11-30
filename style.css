@@ -1,0 +1,479 @@
+/*style.css*/
+/* ====== Font Import ====== */
+@font-face {
+  font-family: "Minecraftia";
+  src: url("fonts/Minecraftia.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* ====== General ====== */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ====== Website Header ====== */
+.website-header {
+  text-align: center;
+  padding: 40px 20px 30px 20px;
+  background: linear-gradient(180deg, #2a2a2a 0%, #1e1e1e 100%);
+  border-bottom: 1px solid #444;
+}
+
+.website-header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  font-weight: bold;
+  position: relative;
+  display: inline-block;
+}
+
+/* Individual letter animations */
+.website-header h1 span {
+  display: inline-block;
+  color: #4da73e;
+  text-shadow: 0 0 10px rgba(77, 167, 62, 0.3);
+  animation: pulseOnShine 3s infinite linear;
+  animation-delay: calc(var(--char-index) * -0.2s);
+}
+
+@keyframes pulseOnShine {
+  0%, 60%, 100% {
+    transform: scale(1);
+    color: #4c8642;
+    text-shadow: 0 0 10px rgba(77, 167, 62, 0.3);
+  }
+  30% {
+    transform: scale(1.15);
+    color: #b2e080;
+    text-shadow: 0 0 20px rgba(138, 224, 117, 0.8);
+  }
+  45% {
+    transform: scale(1.05);
+    color: #6bc758;
+    text-shadow: 0 0 15px rgba(107, 199, 88, 0.6);
+  }
+}
+
+.website-header p {
+  margin: 20px 0 0 0;
+  font-size: 1.1rem;
+  color: #aaa;
+  font-style: italic;
+  line-height: 1.4;
+}
+
+/* ====== Upload Screen ====== */
+#upload-screen {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 40px;
+  margin-top: 20px;
+}
+
+.upload-box {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  border: 3px dashed #555;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #aaa;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+  overflow: hidden;
+}
+
+.upload-box.dragover {
+  border-color: #0f0;
+  color: #0f0;
+}
+
+.upload-box:hover {
+  border-color: #868686;
+}
+.upload-box:hover p {
+  color: #46b654;
+}
+
+.upload-box p {
+  position: relative;
+  z-index: 1;
+}
+
+.cube-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+/* ====== Main Screen ====== */
+#main-screen {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+  padding: 10px;
+  gap: 10px;
+}
+
+/* ====== Left Panel Container ====== */
+.left-panel-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1.1;
+  min-width: 300px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #2a2a2a;
+  border: 1px solid #555;
+}
+
+/* ====== File Bar ====== */
+.file-bar {
+  background: #6ed24a;
+  color: #ffffff;
+  padding: 6px 10px;
+  font-family: monospace;
+  font-size: 1.50rem;
+  text-align: center;
+  border-bottom: 1px solid #333;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  animation: glowPulse 4s infinite ease-in-out;
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    background-color: #4b6243;
+  }
+  50% {
+    background-color: #6ed24a;
+  }
+}
+
+/* ====== Left Panel ====== */
+.left-panel {
+  flex: 2;
+  display: flex;
+  font-family: "Consolas", monospace;
+  font-size: 0.9rem;
+  overflow: hidden;
+  height: 100%;
+}
+
+/* ====== JSON Notepad ====== */
+.line-numbers {
+  user-select: none;
+  background: #1e1e1e;
+  padding: 10px 5px;
+  text-align: right;
+  color: #888;
+  line-height: 18px;
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.json-container {
+  flex: 1;
+  overflow-y: scroll;
+  overflow-x: auto;
+  position: relative;
+  padding: 5px;
+  background: #1e1e1e;
+}
+
+.json-content {
+  position: relative;
+  top: -18px;
+  padding: 6px 10px;
+  white-space: pre;
+  line-height: 18px;
+  outline: none;
+  font-family: "Consolas", monospace;
+  font-size: 0.9rem;
+  min-height: 100%;
+  background: #1e1e1e;
+  color: #e0e0e0;
+}
+
+.json-content:focus {
+  outline: 2px solid #0f62fe;
+  background-color: #2e2e2e;
+}
+
+.json-line-highlight {
+  background-color: rgb(189, 255, 119);
+  color: black;
+  transition: background-color 0.6s ease, color 0.6s ease;
+}
+
+/* ====== Right Panel ====== */
+.right-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #2a2a2a;
+  border: 1px solid #555;
+}
+
+.loot-table {
+  font-family: "Minecraftia", monospace;
+  font-size: 14px;
+}
+.loot-table td:nth-child(3) {
+  text-align: center;
+}
+.loot-list-container {
+  flex: 1;
+  overflow-y: auto;
+  border: 3px solid #6a8a5f;
+  border-radius: 8px;
+  background: #282c2a;
+}
+
+table.loot-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+table.loot-table th, table.loot-table td {
+  padding: 6px;
+  border-bottom: 1px solid #141514;
+  font-family: monospace;
+  text-align: center;
+}
+
+table.loot-table th {
+  background-color: #6a8a5f;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+table.loot-table tr:hover {
+  background-color: rgba(255, 216, 133, 0.266);
+  cursor: pointer;
+}
+
+/* ====== Buttons ====== */
+.button-container {
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-start;
+  gap: 15px;
+}
+
+.button-block {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.button-label {
+  font-size: 0.9rem;
+  color: #aaa;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.button-block button {
+  padding: 15px 20px;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 120px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.button-block button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.button-block button:active {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Individual button colors */
+.button-block .back-button {
+  background-color: #666;
+}
+
+.button-block .back-button:hover {
+  background-color: #555;
+}
+
+.button-block #graphBtn {
+  background-color: #4da73e;
+}
+
+.button-block #graphBtn:hover {
+  background-color: #285f1e;
+}
+
+.button-block #simulateBtn {
+  background-color: #d4af37;
+  animation: simulateGlow 2s infinite ease-in-out;
+}
+
+.button-block #simulateBtn:hover {
+  background-color: #b8941f;
+  animation: simulateGlowFast 1s infinite ease-in-out;
+}
+
+@keyframes simulateGlow {
+  0%, 100% {
+    background-color: #b8941f;
+    box-shadow: 0 0 5px rgba(212, 175, 55, 0.3);
+  }
+  50% {
+    background-color: #d4af37;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+  }
+}
+
+@keyframes simulateGlowFast {
+  0%, 100% {
+    background-color: #a8851a;
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+  }
+  50% {
+    background-color: #d4af37;
+    box-shadow: 0 0 25px rgba(212, 175, 55, 0.8);
+  }
+}
+
+.button-block #simulateBtn:hover {
+  background-color: #b8941f;
+}
+
+/* Individual button glow effects */
+.button-block button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.button-block button:hover::before {
+  left: 100%;
+}
+
+/* ====== Modal (Graph Window) ====== */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background: rgba(0, 0, 0, 0.75);
+}
+
+.modal-content {
+  background: #404a38;
+  margin: 3% auto;
+  padding: 0;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 1200px;
+  height: 75vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.modal-content .close {
+  color: #fff;
+  align-self: flex-end;
+  font-size: 28px;
+  font-weight: bold;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.modal-content .close:hover {
+  color: #ff4444;
+}
+
+.modal-upper {
+  flex: 3;
+  padding: 14px;
+  background: #1e1e1e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 420px;
+  position: relative;
+}
+
+.modal-upper canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.modal-lower {
+  flex: 1;
+  padding: 10px;
+  background: #323332;
+  border-top: 1px solid #ffba0a;
+  font-family: monospace;
+  font-size: 0.95rem;
+  color: #ddd;
+  overflow-y: auto;
+}
+
+/* Webkit browsers */
+::-webkit-scrollbar { width: 12px; }
+::-webkit-scrollbar-track { background: #2a2a2a; }
+::-webkit-scrollbar-thumb { 
+  background: #555; 
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover { background: #666; }
+
+/* Firefox */
+html { 
+  scrollbar-color: #cd8f38 #2a2a2a;
+  scrollbar-width: thin;
+}

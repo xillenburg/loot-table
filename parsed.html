@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Loot Table Tool - Parsed</title>
+  <link rel="icon" href="icon.png" type="image/png">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="simulation.css">
+</head>
+<body>
+
+  <!-- ===== Main Screen ===== -->
+  <div id="main-screen" style="display:none; flex:1;">
+
+    <!-- Left panel container with filename bar -->
+    <div class="left-panel-container">
+      <div class="file-bar" id="fileBar">No file loaded</div>
+      <div class="left-panel">
+        <div class="line-numbers" id="lineNumbers"></div>
+        <div class="json-container">
+          <pre class="json-content" id="jsonOutput" contenteditable="true"></pre>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right panel: Loot table + buttons -->
+    <div class="right-panel">
+      <div class="loot-list-container">
+        <table class="loot-table" id="lootTable">
+          <thead>
+            <tr>
+              <th>Item Origin</th>
+              <th>Icon</th>
+              <th>Item Name</th>
+              <th>Qty</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- rows added dynamically -->
+          </tbody>
+        </table>
+      </div>
+      <div class="button-container">
+        <div class="button-block">
+          <button id="backBtn" class="back-button">↩ Back</button>
+        </div>
+        <div class="button-block">
+          <button id="graphBtn">📊 Graph</button>
+        </div>
+        <div class="button-block">
+          <button id="simulateBtn">🕹️ Simulate</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ===== Graph Modal ===== -->
+  <div id="graphModal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="closeGraph">&times;</span>
+      <div class="modal-upper">
+        <canvas id="graphCanvas"></canvas>
+      </div>
+      <div class="modal-lower" id="graphDetails">
+        <!-- Item details filled dynamically -->
+      </div>
+    </div>
+  </div>
+
+<!-- ===== Simulate Modal ===== -->
+<div id="simulateModal" class="modal">
+  <div class="modal-content">
+    <span class="close" id="closeSimulate">&times;</span>
+    <div class="modal-upper">
+      <div id="chestGrid" class="chest-grid"></div>
+    </div>
+    <div class="modal-middle" id="itemInfoDisplay">
+      <!-- Item info will appear HERE -->
+    </div>
+    <div class="modal-lower">
+      <button id="simulateGoBtn">Go</button>
+    </div>
+  </div>
+</div>
+
+  <!-- ===== Loot guides (vanilla/modded) ===== -->
+  <script src="loot_guides.js"></script>
+  <script src="nameFormatter.js"></script>
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Graph logic -->
+  <script src="graph.js"></script>
+
+  <!-- Main script -->
+  <script src="script.js"></script>
+
+  <!-- Simulation logic -->
+  <script src="simulate.js"></script>
+
+</body>
+</html>

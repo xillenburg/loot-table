@@ -1,0 +1,552 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:random_chance",
+          "chance": 0.75
+        },
+        {
+          "condition": "minecraft:inverted",
+          "term": {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "minecraft:player",
+              "location": {
+                "biome": "minecraft:desert"
+              }
+            }
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:diamond",
+          "weight": 5,
+          "quality": 2,
+          "functions": [
+            {
+              "function": "minecraft:furnace_smelt",
+              "conditions": [
+                {
+                  "condition": "minecraft:entity_properties",
+                  "entity": "this",
+                  "predicate": {
+                    "flags": {
+                      "is_on_fire": true
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 1,
+                "max": 3,
+                "distribution": "minecraft:triangle"
+              },
+              "add": false
+            },
+            {
+              "function": "minecraft:apply_bonus",
+              "formula": "minecraft:uniform_bonus_count",
+              "parameters": {
+                "bonusMultiplier": 2
+              },
+              "enchantment": "minecraft:fortune",
+              "parameters": {
+                "extra": 1.0,
+                "probability": 0.3
+              }
+            },
+            {
+              "function": "minecraft:set_lore",
+              "lore": [
+                {
+                  "text": "Ancient Treasure",
+                  "color": "gold",
+                  "italic": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:enchanted_golden_apple",
+          "weight": 1,
+          "quality": 5,
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{CustomData:{treasure_rank:\"legendary\",discovered_by:\"ancient_civilization\"}}"
+            },
+            {
+              "function": "minecraft:set_name",
+              "name": {
+                "text": "Apple of Eternity",
+                "color": "light_purple",
+                "italic": true
+              }
+            },
+            {
+              "function": "minecraft:set_attributes",
+              "modifiers": [
+                {
+                  "attribute": "minecraft:generic.luck",
+                  "name": "Treasure Bonus",
+                  "amount": {
+                    "type": "minecraft:score",
+                    "target": "this",
+                    "score": "loot_quality"
+                  },
+                  "operation": "addition",
+                  "slot": "mainhand",
+                  "id": "a1b2c3d4-1234-5678-9abc-def123456789"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "rolls": {
+        "type": "minecraft:uniform",
+        "min": 3,
+        "max": 8,
+        "distribution": "minecraft:gaussian"
+      }
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:any_of",
+          "terms": [
+            {
+              "condition": "minecraft:time_check",
+              "value": {
+                "min": 13000
+              }
+            },
+            {
+              "condition": "minecraft:weather_check",
+              "raining": true
+            }
+          ]
+        }
+      ],
+      "entries": [
+                {
+          "type": "minecraft:item",
+          "id": "Piglin Overhaul",
+          "name": "minecraft:nether_boots",
+          "weight": 1,
+          "quality": 3,
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{display:{color:16711680},Unbreakable:1b,HideFlags:63,Enchantments:[{id:\"minecraft:protection\",lvl:4s},{id:\"minecraft:feather_falling\",lvl:3s},{id:\"minecraft:soul_speed\",lvl:2s}]}"
+            },
+            {
+              "function": "minecraft:set_name",
+              "name": {
+                "text": "Boots of the Nether Walker",
+                "color": "dark_red",
+                "italic": false
+              }
+            },
+            {
+              "function": "minecraft:set_lore",
+              "lore": [
+                {
+                  "text": "Walk through lava unscathed",
+                  "color": "red"
+                },
+                {
+                  "text": "Ancient Nether Artifact",
+                  "color": "gold"
+                }
+              ],
+              "replace": true
+            },
+            {
+              "function": "minecraft:set_attributes",
+              "modifiers": [
+                {
+                  "attribute": "minecraft:generic.movement_speed",
+                  "name": "Nether Speed",
+                  "amount": 0.05,
+                  "operation": "multiply_base",
+                  "slot": "feet",
+                  "id": "nether_boots_speed_boost"
+                }
+              ]
+            },
+            {
+              "function": "minecraft:fill_player_head",
+              "entity": "this"
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "id": "Better Nether",
+          "name": "minecraft:nether_boots",
+          "weight": 1,
+          "quality": 3,
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{display:{color:16711680},Unbreakable:1b,HideFlags:63,Enchantments:[{id:\"minecraft:protection\",lvl:4s},{id:\"minecraft:feather_falling\",lvl:3s},{id:\"minecraft:soul_speed\",lvl:2s}]}"
+            },
+            {
+              "function": "minecraft:set_name",
+              "name": {
+                "text": "Boots of the Nether Walker",
+                "color": "dark_red",
+                "italic": false
+              }
+            },
+            {
+              "function": "minecraft:set_lore",
+              "lore": [
+                {
+                  "text": "Walk through lava unscathed",
+                  "color": "red"
+                },
+                {
+                  "text": "Ancient Nether Artifact",
+                  "color": "gold"
+                }
+              ],
+              "replace": true
+            },
+            {
+              "function": "minecraft:set_attributes",
+              "modifiers": [
+                {
+                  "attribute": "minecraft:generic.movement_speed",
+                  "name": "Nether Speed",
+                  "amount": 0.05,
+                  "operation": "multiply_base",
+                  "slot": "feet",
+                  "id": "nether_boots_speed_boost"
+                }
+              ]
+            },
+            {
+              "function": "minecraft:fill_player_head",
+              "entity": "this"
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:nether_chestplate",
+          "weight": 1,
+          "quality": 3,
+          "functions": [
+            {
+              "function": "minecraft:enchant_randomly",
+              "enchantments": [
+                "minecraft:protection",
+                "minecraft:fire_protection",
+                "minecraft:blast_protection"
+              ],
+              "levels": {
+                "type": "minecraft:uniform",
+                "min": 3,
+                "max": 5
+              }
+            },
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "type": "minecraft:uniform",
+                "min": 0.1,
+                "max": 0.8
+              }
+            },
+            {
+              "function": "minecraft:set_attributes",
+              "modifiers": [
+                {
+                  "attribute": "minecraft:generic.armor_toughness",
+                  "name": "Nether Resilience",
+                  "amount": 3.0,
+                  "operation": "addition",
+                  "slot": "chest",
+                  "id": "nether_chestplate_toughness"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:brute_axe",
+          "weight": 1,
+          "quality": 4,
+          "functions": [
+            {
+              "function": "minecraft:enchant_with_levels",
+              "levels": {
+                "type": "minecraft:normal",
+                "mean": 25.0,
+                "deviation": 10.0
+              },
+              "treasure": true,
+              "options": {
+                "unbreaking": true,
+                "efficiency": true,
+                "sharpness": true
+              }
+            },
+            {
+              "function": "minecraft:set_attributes",
+              "modifiers": [
+                {
+                  "attribute": "minecraft:generic.attack_damage",
+                  "name": "Brute Force",
+                  "amount": 5.0,
+                  "operation": "addition",
+                  "slot": "mainhand",
+                  "id": "brute_axe_damage_boost"
+                },
+                {
+                  "attribute": "minecraft:generic.attack_speed",
+                  "name": "Brute Speed",
+                  "amount": -0.2,
+                  "operation": "addition",
+                  "slot": "mainhand",
+                  "id": "brute_axe_speed_penalty"
+                }
+              ]
+            },
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{CustomModelData:1234,brute_axe:1b,can_smash:1b}"
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:defense_trinket",
+          "weight": 1,
+          "quality": 2,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:score",
+                "target": {
+                  "type": "minecraft:fixed",
+                  "name": "loot_quality"
+                },
+                "score": "defense_bonus"
+              },
+              "add": true
+            },
+            {
+              "function": "minecraft:set_potion",
+              "id": "minecraft:strong_healing"
+            },
+            {
+              "function": "minecraft:set_stew_effect",
+              "effects": [
+                {
+                  "type": "minecraft:resistance",
+                  "duration": {
+                    "type": "minecraft:uniform",
+                    "min": 300,
+                    "max": 600
+                  },
+                  "amplifier": {
+                    "type": "minecraft:uniform",
+                    "min": 1,
+                    "max": 2
+                  }
+                },
+                {
+                  "type": "minecraft:absorption",
+                  "duration": {
+                    "type": "minecraft:uniform",
+                    "min": 200,
+                    "max": 400
+                  },
+                  "amplifier": {
+                    "type": "minecraft:uniform",
+                    "min": 0,
+                    "max": 1
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "id": "GAMBLING!",
+          "name": "minecraft:minecoin",
+          "weight": 3,
+          "quality": 1,
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 2.0,
+                "min": 1.0
+              },
+              "function": "minecraft:set_count"
+            },
+            {
+              "function": "minecraft:apply_bonus",
+              "formula": "minecraft:ore_drops",
+              "parameters": {
+                "extra": 2.0,
+                "probability": 0.4
+              }
+            },
+            {
+              "function": "minecraft:explosion_decay"
+            },
+            {
+              "function": "minecraft:looting_enchant",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 0,
+                "max": 2
+              }
+            },
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{CurrencyData:{value:1,type:\"minecoin\"}}"
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "id": "Java Marketplace",
+          "name": "minecraft:minecoin",
+          "weight": 3,
+          "quality": 1,
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 2.0,
+                "min": 1.0
+              },
+              "function": "minecraft:set_count"
+            },
+            {
+              "function": "minecraft:apply_bonus",
+              "formula": "minecraft:ore_drops",
+              "parameters": {
+                "extra": 2.0,
+                "probability": 0.4
+              }
+            },
+            {
+              "function": "minecraft:explosion_decay"
+            },
+            {
+              "function": "minecraft:looting_enchant",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 0,
+                "max": 2
+              }
+            },
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{CurrencyData:{value:1,type:\"minecoin\"}}"
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:energy_trinket",
+          "weight": 1,
+          "quality": 2,
+          "functions": [
+            {
+              "function": "minecraft:set_stew_effect",
+              "effects": [
+                {
+                  "type": "minecraft:speed",
+                  "duration": {
+                    "type": "minecraft:score",
+                    "target": "this",
+                    "score": "energy_duration"
+                  },
+                  "amplifier": {
+                    "type": "minecraft:uniform",
+                    "min": 1,
+                    "max": 3
+                  }
+                },
+                {
+                  "type": "minecraft:jump_boost",
+                  "duration": {
+                    "type": "minecraft:uniform",
+                    "min": 200,
+                    "max": 400
+                  },
+                  "amplifier": {
+                    "type": "minecraft:score",
+                    "target": "this",
+                    "score": "jump_power"
+                  }
+                },
+                {
+                  "type": "minecraft:haste",
+                  "duration": {
+                    "type": "minecraft:triangular",
+                    "min": 300,
+                    "max": 600,
+                    "mode": 450
+                  },
+                  "amplifier": 1
+                }
+              ]
+            },
+            {
+              "function": "minecraft:set_name",
+              "name": {
+                "text": "Potion of Boundless Energy",
+                "color": "yellow",
+                "italic": true
+              }
+            }
+          ]
+        }
+      ],
+      "rolls": {
+        "type": "minecraft:uniform",
+        "min": 3,
+        "max": 8,
+        "distribution": "minecraft:gaussian"
+      }
+    }
+  ],
+  "random_sequence": "minecraft:chests/ancient_treasure_vault",
+  "functions": [
+    {
+      "function": "minecraft:exploration_map",
+      "destination": "minecraft:buried_treasure",
+      "decoration": "red_x",
+      "zoom": 2,
+      "search_radius": 100,
+      "skip_existing_chunks": true
+    }
+  ]
+}
