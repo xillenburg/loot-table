@@ -4,7 +4,8 @@
 
 - Open my [website](https://loot-table.onrender.com)
 - Upload a loot table JSON file located at "loot table/sample json" and pick any of the two .json samples
-- OR press here to auto-download a `.json` sample [Uploading ancient_city.json…]()
+- OR press here to auto-download a `.json` sample 
+[ancient_city.json](https://github.com/user-attachments/files/23837943/ancient_city.json)
 
 - Images should load from backend server
 
