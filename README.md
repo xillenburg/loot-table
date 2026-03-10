@@ -1,6 +1,9 @@
 # Loot Table Analyzer - Setup Instructions
 
-## Note
+## Note - March 2026
+### User Login for backup feature will be implemented for **Laboratory Task March 13,2026** for the AppDev Course
+
+## Note - November 2025
 ### I did not implement a generic backend feature like **"user login"** as this website does not need it. The entire backend feature is a simple **"backend finds the images in its folder and sends them back to show on your screen."**
 
 ## You can either run my website LOCALLY **OR** use my deployed [website. ](https://loot-table.onrender.com) Proceed to the `new` branch for further instructions
